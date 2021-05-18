@@ -1,7 +1,7 @@
 "use strict";
 
 const moviePosters = () => {
-    let loader = `<div class="loading"><img src="img/download.png" alt="loading image"></div>`;
+    let loader = `<div class="loading"><img src="img/loading.gif"></div>`;
     $("#container").html(loader);
     fetch("https://pricey-humdrum-beard.glitch.me/movies")
         .then(resp => resp.json())
