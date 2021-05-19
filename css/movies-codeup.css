@@ -1,14 +1,39 @@
 .posters {
-    padding: 20px 10px;
+    padding: 10px 20px;
     border: 2px solid black;
     margin-bottom: 10px;
-    width: 50%;
+    width: 300px;
     height: auto;
+}
+.title{
+   text-align: center;
+    margin: 0;
 }
 img {
     width: 300px;
     height: 445px;
+    margin: 0 auto;
 }
-.title {
-    display: inline;
+.underImgContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.rating{
+    flex-direction: column;
+}
+.director{
+    flex-direction: column;
+}
+.genre{
+    text-align: center;
+    padding: 10px;
+}
+.description{
+    padding: 12px;
+    font-size: 110%;
+
+}
+.hidden{
+    display: none;
 }
