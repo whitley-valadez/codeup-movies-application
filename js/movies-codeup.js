@@ -8,12 +8,21 @@ const moviePosters = () => {
         .then(movies => {
             let htmlStr = "";
             for (let movie of movies) {
+
+                let title = movie.title.split("");
+                title[0] = title[0].toUpperCase();
+                title = title.join("");
+
                 htmlStr += `<div class="posters">`
-                htmlStr += `<h1 class="title">${movie.title}</h1><img src=${movie.poster}>`;
-                htmlStr += `<div class="rating">${movie.rating}/5 User Rating!</div>`;
+                htmlStr += `<h1 class="title">${title}</h1><div class="genre">${movie.genre}</div><img src=${movie.poster}>`;
+                htmlStr += `<div class="underImgContainer"><div class="rating">${movie.rating}/5</div><div class="director">By: ${movie.director}</div></div>`;
+                htmlStr += `<div class="description">${movie.plot}</div>`;
                 htmlStr += `</div>`;
             }
             $("#container").html(htmlStr);
         });
 }
 moviePosters();
+
+
+
