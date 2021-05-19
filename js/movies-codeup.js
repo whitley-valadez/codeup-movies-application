@@ -54,5 +54,27 @@ $(document).ready(function(){
             .then(moviePosters).catch(error => console.log(error))
     });
 
+    $("#modify").click(function(){
+
+
+
+        let insert = {
+            "title": "Percy Jackson & The Titans Curse"
+        }
+
+        let patchOptions = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(insert)
+        }
+
+        //PUT
+        fetch(`https://pricey-humdrum-beard.glitch.me/movies/${userSelectedId}`, patchOptions)
+            .then(getBooks);
+
+    });
+
     //end of document ready
 });
