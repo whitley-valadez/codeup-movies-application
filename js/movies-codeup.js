@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function(){
-
+    let movieArray = [];
     let url = "https://shadowed-deciduous-gecko.glitch.me/movies";
     const moviePosters = () => {
         let loader = `<div class="loading"><img src="img/loading.gif"></div>`;
@@ -9,6 +9,7 @@ $(document).ready(function(){
         fetch(url)
             .then(resp => resp.json())
             .then(movies => {
+                movieArray = movies;
                 let htmlStr = "";
                 let html = "";
                 for (let movie of movies) {
@@ -28,11 +29,17 @@ $(document).ready(function(){
                 console.log(movies)
                 $("#container").html(htmlStr);
                 $("#selectMenu").append(html);
+                $("#selectMenu2").html(html);
             });
     }
     moviePosters();
 
+    $(".remove-hidden").click(function() {
+        $("#selectMenu2").removeClass("hidden");
+        $("#delete-movie").removeClass("hidden");
+    });
 
+    //edit movie
     $("#selectMenu").change(function(){
         let target = $(this).val()
         console.log(target);
@@ -41,6 +48,15 @@ $(document).ready(function(){
 
         //grab info from the input fields
         //edit function
+        for (let movie of movieArray) {
+            if (movie.id == target) {
+                $("#newTitle").val(movie.title);
+                $("#newGenre").val(movie.genre);
+                $("#newRating").val(movie.rating);
+                $("#newDirector").val(movie.director);
+                $("#newPlot").val(movie.plot);
+            }
+        }
         $("#changeMovie").click(function(){
 
             let insert = {
@@ -63,6 +79,24 @@ $(document).ready(function(){
         });
 
     })
+
+    //delete movie
+    let deleteOptions = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    $("#selectMenu2").change(function()  {
+        let inputVal = $(this).val();
+        console.log("hello: " + inputVal);
+        $("#delete-movie").click(function() {
+            fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${inputVal}`, deleteOptions)
+                .then(moviePosters);
+        });
+    });
+
 
 
     //create a new movie
@@ -89,7 +123,6 @@ $(document).ready(function(){
             .then(resp => resp.json())
             .then(moviePosters).catch(error => console.log(error))
     });
-
 
 
     //end of document ready
