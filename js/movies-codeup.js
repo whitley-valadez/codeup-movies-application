@@ -34,22 +34,36 @@ $(document).ready(function(){
     }
     moviePosters();
 
-    //show the delete menu
-    $(".remove-hidden").click(function() {
-        $("#selectMenu2").toggleClass("hidden1");
-        $("#delete-movie").toggleClass("hidden1");
-    });
-
-    //show the post menu
-    $("#post-id").click(function () {
-        $("#postMovie").toggleClass("hidden1");
-    });
-
-    //Show the edit menu
+    //========Show the edit menu========\\
     $("#showEdit").click(function() {
         $("#editMovie").toggleClass("hidden1");
         $("#selectMenu").toggleClass("hidden1");
     });
+    //hide edit menu
+    $("#changeMovie").click(function(){
+        $("#editMovie").toggleClass("hidden1");
+        $("#selectMenu").toggleClass("hidden1");
+    })
+
+    //========show the delete menu========\\
+    $(".remove-hidden").click(function() {
+        $("#selectMenu2").toggleClass("hidden1");
+        $("#delete-movie").toggleClass("hidden1");
+    });
+    //hide delete menu
+    $("#delete-movie").click(function(){
+        $("#selectMenu2").toggleClass("hidden1");
+        $("#delete-movie").toggleClass("hidden1");
+    })
+
+    //========show the post menu========\\
+    $("#post-id").click(function () {
+        $("#postMovie").toggleClass("hidden1");
+    });
+    //hide post menu
+    $("#newMovie").click(function() {
+        $("#postMovie").toggleClass("hidden1");
+    })
 
     //when the option selected is changed, update the input fields
     $("#selectMenu").change(function(){
@@ -118,7 +132,7 @@ $(document).ready(function(){
             genre: $("#genre").val(),
             rating: $("#rating").val(),
             director: $("#director").val(),
-            plot: $("#description").val()
+            plot: $("#plot").val()
         }
         let postOptions = {
             method: 'POST',
