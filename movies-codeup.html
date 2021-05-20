@@ -8,6 +8,31 @@
 </head>
 <body>
 
+<div class="rightSide">
+    <select id="selectMenu">
+        <option>Select a movie!</option>
+    </select>
+    <div class="hidden">
+        <label for="newTitle">Change Title: </label>
+        <input type="text" id="newTitle">
+        <br>
+        <label for="newGenre">Change Genre: </label>
+        <input type="text" id="NewGenre">
+        <br>
+        <label for="newRating">Change Rating: </label>
+        <input type="text" id="newRating">
+        <br>
+        <label for="newDirector">Change Director: </label>
+        <input type="text" id="newDirector">
+        <br>
+        <label for="newPlot">Change plot</label>
+        <textarea id="newPlot" rows="5" cols="20"></textarea>
+        <br>
+        <button id="changeMovie">Update Movie</button>
+    </div>
+
+</div>
+
 <div id="container"></div>
 
 <!--Post a Movie-->
@@ -31,11 +56,6 @@
 </div>
 
 <!--Edit a movie-->
-<div>
-    <select id="selectMenu">
-
-    </select>
-</div>
 
 
 

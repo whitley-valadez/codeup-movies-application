@@ -37,3 +37,6 @@ img {
 .hidden{
     display: none;
 }
+.rightSide{
+    float: right;
+}

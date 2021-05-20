@@ -2,20 +2,24 @@
 
 $(document).ready(function(){
 
+    let url = "https://shadowed-deciduous-gecko.glitch.me/movies";
     const moviePosters = () => {
         let loader = `<div class="loading"><img src="img/loading.gif"></div>`;
         $("#container").html(loader);
-        fetch("https://pricey-humdrum-beard.glitch.me/movies")
+        fetch(url)
             .then(resp => resp.json())
             .then(movies => {
                 let htmlStr = "";
+                let html = "";
                 for (let movie of movies) {
 
                     // let title = movie.title.split("");
                     // title[0] = title[0].toUpperCase();
                     // title = title.join("");
 
-                    htmlStr += `<div class="posters">`
+                    html += `<option value=${movie.id}>${movie.title}</option>`;
+
+                    htmlStr += `<div class="posters"><a href="#1"></a>`
                     htmlStr += `<h1 class="title">${movie.title}</h1><div class="genre">${movie.genre}</div><img src=${movie.poster}>`;
                     htmlStr += `<div class="underImgContainer"><div class="rating">${movie.rating}/5</div><div class="director">By: ${movie.director}</div></div>`;
                     htmlStr += `<div class="description">${movie.plot}</div>`;
@@ -23,13 +27,20 @@ $(document).ready(function(){
                 }
                 console.log(movies)
                 $("#container").html(htmlStr);
+                $("#selectMenu").html(html);
             });
     }
     moviePosters();
 
+
+    $("#selectMenu").change(function(){
+        let target = $(this).val()
+        console.log(target);
+        //show menu and then use targeted fields to PATCH the selected movie with new information
+    })
+
+
     //create a new movie
-
-
     $('#newMovie').click((e) => {
         e.preventDefault();
 
@@ -49,7 +60,7 @@ $(document).ready(function(){
         }
 
         console.log(addMovie)
-        fetch("https://pricey-humdrum-beard.glitch.me/movies", postOptions)
+        fetch(url, postOptions)
             .then(resp => resp.json())
             .then(moviePosters).catch(error => console.log(error))
     });
@@ -70,8 +81,8 @@ $(document).ready(function(){
             body: JSON.stringify(insert)
         }
 
-        //PUT
-        fetch(`https://pricey-humdrum-beard.glitch.me/movies/${userSelectedId}`, patchOptions)
+        //P
+        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${userSelectedId}`, patchOptions)
             .then(getBooks);
 
     });
