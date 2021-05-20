@@ -1,8 +1,16 @@
+hr {
+    border-bottom: 2px solid darkslategrey;
+    margin: 2px;
+}
+#container {
+    display: flex;
+    justify-content: space-around;
+}
 .posters {
     padding: 10px 20px;
     border: 2px solid black;
-    margin-bottom: 10px;
-    width: 300px;
+    margin: 10px 5px 10px 5px;
+    width: 340px;
     height: auto;
 }
 .title{
@@ -12,7 +20,7 @@
 img {
     width: 300px;
     height: 445px;
-    margin: 0 auto;
+    padding-right: 5px;
 }
 .underImgContainer{
     display: flex;
@@ -34,9 +42,15 @@ img {
     font-size: 110%;
 
 }
-.hidden{
+.hidden1{
     display: none;
 }
 .rightSide{
     float: right;
+}
+
+.btn {
+    margin: 10px;
+    background-color: #09090a;
+    color: whitesmoke;
 }

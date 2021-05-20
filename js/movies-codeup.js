@@ -18,11 +18,11 @@ $(document).ready(function(){
                     html += `<option value=${movie.id}>${movie.title}</option>`;
 
                     //creates movie posters
-                    htmlStr += `<div class="posters">`
+                    htmlStr += `<div class="posters "><div>`
                     htmlStr += `<h1 class="title">${movie.title}</h1><div class="genre">${movie.genre}</div><img src=${movie.poster}>`;
                     htmlStr += `<div class="underImgContainer"><div class="rating">${movie.rating}/5</div><div class="director">By: ${movie.director}</div></div>`;
                     htmlStr += `<div class="description">${movie.plot}</div>`;
-                    htmlStr += `</div>`;
+                    htmlStr += `</div></div>`;
                 }
 
                 //pushes created card or dropdown menu to the screen
@@ -36,19 +36,19 @@ $(document).ready(function(){
 
     //show the delete menu
     $(".remove-hidden").click(function() {
-        $("#selectMenu2").toggleClass("hidden");
-        $("#delete-movie").toggleClass("hidden");
+        $("#selectMenu2").toggleClass("hidden1");
+        $("#delete-movie").toggleClass("hidden1");
     });
 
     //show the post menu
     $("#post-id").click(function () {
-        $("#postMovie").toggleClass("hidden");
+        $("#postMovie").toggleClass("hidden1");
     });
 
     //Show the edit menu
     $("#showEdit").click(function() {
-        $("#editMovie").toggleClass("hidden");
-        $("#selectMenu").toggleClass("hidden");
+        $("#editMovie").toggleClass("hidden1");
+        $("#selectMenu").toggleClass("hidden1");
     });
 
     //when the option selected is changed, update the input fields
