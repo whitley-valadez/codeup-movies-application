@@ -27,7 +27,7 @@ $(document).ready(function(){
                 }
                 console.log(movies)
                 $("#container").html(htmlStr);
-                $("#selectMenu").html(html);
+                $("#selectMenu").append(html);
             });
     }
     moviePosters();
@@ -37,6 +37,31 @@ $(document).ready(function(){
         let target = $(this).val()
         console.log(target);
         //show menu and then use targeted fields to PATCH the selected movie with new information
+        $(".rightSide").children().removeClass("hidden");
+
+        //grab info from the input fields
+        //edit function
+        $("#changeMovie").click(function(){
+
+            let insert = {
+                title: $("#newTitle").val(),
+                genre: $("#newGenre").val(),
+                rating: $("#newRating").val(),
+                director: $("#newDirector").val(),
+                plot: $("#newPlot").val()
+            }
+            let patchOptions = {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(insert)
+            }
+            //PATCH
+            fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${target}`, patchOptions)
+                .then(moviePosters);
+        });
+
     })
 
 
@@ -65,27 +90,7 @@ $(document).ready(function(){
             .then(moviePosters).catch(error => console.log(error))
     });
 
-    $("#modify").click(function(){
 
-
-
-        let insert = {
-            "title": "Percy Jackson & The Titans Curse"
-        }
-
-        let patchOptions = {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(insert)
-        }
-
-        //P
-        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${userSelectedId}`, patchOptions)
-            .then(getBooks);
-
-    });
 
     //end of document ready
 });
