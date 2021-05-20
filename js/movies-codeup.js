@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     let movieArray = [];
-    let url = "https://shadowed-deciduous-gecko.glitch.me/movies";
+    let url = "https://screeching-screeching-fright.glitch.me/movies";
     const moviePosters = () => {
         let loader = `<div class="loading"><img src="img/loading.gif"></div>`;
         $("#container").html(loader);
@@ -36,8 +36,8 @@ $(document).ready(function(){
 
     //show the delete menu
     $(".remove-hidden").click(function() {
-        $("#selectMenu2").removeClass("hidden");
-        $("#delete-movie").removeClass("hidden");
+        $("#selectMenu2").toggleClass("hidden");
+        $("#delete-movie").toggleClass("hidden");
     });
 
     //show the post menu
@@ -86,7 +86,7 @@ $(document).ready(function(){
             body: JSON.stringify(insert)
         }
         //PATCH request
-        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${input}`, patchOptions)
+        fetch(`${url}/${input}`, patchOptions)
             .then(moviePosters);
     });
 
@@ -103,7 +103,7 @@ $(document).ready(function(){
         console.log("hello: " + inputVal);
         $("#delete-movie").click(function() {
             //DELETE request
-            fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${inputVal}`, deleteOptions)
+            fetch(`${url}/${inputVal}`, deleteOptions)
                 .then(moviePosters);
         });
     });
