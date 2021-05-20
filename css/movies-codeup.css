@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
+:root {
+    --panelBg: rgb(47, 49, 52);
+    --darkBg: rgb(62, 64, 67);
+}
+
 hr {
-    border-bottom: 2px solid darkslategrey;
-    margin: 2px;
+    margin: 0 0 4px 0;
+    border : 0;
+    height: 3px;
+    background-image: linear-gradient(to right, rgb(63, 162, 172), rgb(65, 42, 146), rgb(63, 162, 172));
+
+}
+body {
+    background-color: var(--darkBg);
+    color: whitesmoke;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 #container {
     display: flex;
@@ -10,17 +25,24 @@ hr {
     border: 2px solid darkslategrey;
     padding: 15px;
     border-radius: 5px;
-    background: whitesmoke;
+    background: var(--panelBg);
 }
 .posters {
     padding: 10px 20px;
-    border: 2px solid black;
-    margin: 10px 5px 10px 5px;
+    margin: 10px;
     width: 340px;
     height: auto;
     border-radius: 5px;
+    background-color: var(--panelBg);
 }
-.title{
+
+.grow {
+    transition: all .3s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.05);
+}
+.title {
    text-align: center;
     margin: 0;
 }
@@ -29,30 +51,30 @@ img {
     height: 445px;
     padding-right: 5px;
 }
-.underImgContainer{
+.underImgContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.rating{
+.rating {
     flex-direction: column;
 }
-.director{
+.director {
     flex-direction: column;
 }
-.genre{
+.genre {
     text-align: center;
     padding: 10px;
 }
-.description{
+.description {
     padding: 12px;
     font-size: 110%;
 
 }
-.hidden1{
+.hidden1 {
     display: none;
 }
-.rightSide{
+.rightSide {
     float: right;
 }
 
@@ -61,21 +83,70 @@ img {
     background-color: #09090a;
     color: whitesmoke;
 }
-.textBox{
+.textBox {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.select{
+.select {
     padding: 0 10px;
     height: 38px;
 }
-.deleteGroup{
+.deleteGroup {
     display: flex;
     align-items: center;
 }
-#delete-movie{
+#delete-movie {
     margin: 0;
     background-color: rgb(203, 68, 74);
+}
+.icon-info {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+i {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.followUs {
+    font-size: 10px;
+    padding-top: 5px;
+}
+a:hover {
+    color: cadetblue;
+}
+.gradient-border {
+    --borderWidth: 3px;
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+@keyframes animatedgradient {
+    0% {
+        background-position: 0 100%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }

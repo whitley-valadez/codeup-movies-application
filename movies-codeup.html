@@ -9,10 +9,13 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light mb-0" style="background-color: #09090a;">
-    <h4 class="text-light "><i class="fas fa-film"></i>Movie Logo</h4>
-
-    <a class=" text-light" href="#"><i class="far fa-user-circle"></i></a>
+<nav class="navbar sticky-top navbar-light mb-0" style="background-color: #09090a;">
+    <h4 class="text-light "><i class="fas fa-film"></i>Cinema Flow</h4>
+    <a class="text-light" href="#">Home</a>
+    <a class="text-light" href="#">TV Shows & Movies</a>
+    <a class="text-light" href="#">New & Popular</a>
+    <a class="text-light" href="#">My List <i class="fas fa-list"></i></a>
+    <a class=" text-light" href="#"><i class="fas fa-bell"></i><i class="far fa-user-circle"></i></a>
 </nav>
 <hr>
 
@@ -24,22 +27,22 @@
 <div class="rightSide d-flex row">
     <div class="">
         <button id="showEdit" class="btn btn-outline-secondary">Edit</button>
-        <select  id="selectMenu" class="hidden1"></select>
+        <select  id="selectMenu" class="hidden1 select"></select>
         <div class="hidden1 editMovie" id="editMovie">
-            <label for="newTitle">Change Title: </label>
+            <label for="newTitle">Change Title </label>
             <input type="text" id="newTitle">
             <br>
-            <label for="newGenre">Change Genre: </label>
+            <label for="newGenre">Change Genre </label>
             <input type="text" id="newGenre">
             <br>
-            <label for="newRating">Change Rating: </label>
+            <label for="newRating">Change Rating </label>
             <input type="text" id="newRating">
             <br>
-            <label for="newDirector">Change Director: </label>
+            <label for="newDirector">Change Director </label>
             <input type="text" id="newDirector">
             <br>
             <div class="textBox">
-                <label for="newPlot">Change plot: </label>
+                <label for="newPlot">Change plot </label>
                 <textarea id="newPlot" rows="3" cols="30"></textarea>
             </div>
 
@@ -62,20 +65,20 @@
     <div class="">
         <button id="post-id" class="btn btn-outline-secondary">Post Movie</button>
         <div class="hidden1 editMovie" id="postMovie">
-            <label for="title">Title</label>
+            <label for="title">Title </label>
             <input type="text" id="title">
             <br>
-            <label for="genre">Genre</label>
+            <label for="genre">Genre </label>
             <input type="text" id="genre">
             <br>
-            <label for="rating">Rating</label>
+            <label for="rating">Rating </label>
             <input type="text" id="rating">
             <br>
-            <label for="director">Director</label>
+            <label for="director">Director </label>
             <input type="text" id="director">
             <br>
             <div class="textBox">
-                <label for="plot">Plot: </label>
+                <label for="plot">Plot </label>
                 <textarea id="plot" rows="5" cols="40"></textarea>
             </div>
 
@@ -84,10 +87,19 @@
         </div>
     </div>
 </div>
+<footer>
+    <nav>
+        <ul class="icon-info text-light">
+            <li class="bolt text-light"><i class="fas fa-ticket-alt"></i></li>
+            <li class="followUs text-light">Follow Us @</li>
+            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="fb"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" class="ig" ><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </nav>
+</footer>
 
-
-
-
+<!------------->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="js/movies-codeup.js"></script>
 <!--bootstrap-->

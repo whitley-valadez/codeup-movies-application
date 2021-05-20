@@ -18,7 +18,7 @@ $(document).ready(function(){
                     html += `<option value=${movie.id}>${movie.title}</option>`;
 
                     //creates movie posters
-                    htmlStr += `<div class="posters "><div>`
+                    htmlStr += `<div class="posters grow gradient-border"><div>`
                     htmlStr += `<h1 class="title">${movie.title}</h1><div class="genre">${movie.genre}</div><img src=${movie.poster}>`;
                     htmlStr += `<div class="underImgContainer"><div class="rating">${movie.rating}/5</div><div class="director">By: ${movie.director}</div></div>`;
                     htmlStr += `<div class="description">${movie.plot}</div>`;
