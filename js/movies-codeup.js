@@ -133,6 +133,5 @@ $(document).ready(function(){
             .then(moviePosters).catch(error => console.log(error))
     });
 
-
     //end of document ready
 });

@@ -6,12 +6,19 @@ hr {
     display: flex;
     justify-content: space-around;
 }
+.editMovie{
+    border: 2px solid darkslategrey;
+    padding: 15px;
+    border-radius: 5px;
+    background: whitesmoke;
+}
 .posters {
     padding: 10px 20px;
     border: 2px solid black;
     margin: 10px 5px 10px 5px;
     width: 340px;
     height: auto;
+    border-radius: 5px;
 }
 .title{
    text-align: center;
@@ -53,4 +60,22 @@ img {
     margin: 10px;
     background-color: #09090a;
     color: whitesmoke;
+}
+.textBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.select{
+    padding: 0 10px;
+    height: 38px;
+}
+.deleteGroup{
+    display: flex;
+    align-items: center;
+}
+#delete-movie{
+    margin: 0;
+    background-color: rgb(203, 68, 74);
 }

@@ -15,65 +15,73 @@
     <a class=" text-light" href="#"><i class="far fa-user-circle"></i></a>
 </nav>
 <hr>
+
 <!--displays movies-->
-<div id="container" class="row d-flex"></div>
+<div id="container" class=" row d-flex"></div>
+
+
 <!--edit menu-->
-<div class="rightSide">
-    <button id="showEdit" class="btn btn-outline-secondary">Edit</button>
-    <select  id="selectMenu" class="hidden1">
-        <option value="-1" selected>Select a movie!</option>
-    </select>
-    <div id="editMovie" class="hidden1 ">
-        <label for="newTitle">Change Title: </label>
-        <input type="text" id="newTitle">
-        <br>
-        <label for="newGenre">Change Genre: </label>
-        <input type="text" id="newGenre">
-        <br>
-        <label for="newRating">Change Rating: </label>
-        <input type="text" id="newRating">
-        <br>
-        <label for="newDirector">Change Director: </label>
-        <input type="text" id="newDirector">
-        <br>
-        <label for="newPlot">Change plot</label>
-        <textarea id="newPlot" rows="5" cols="20"></textarea>
-        <br>
-        <button id="changeMovie">Update Movie</button>
+<div class="rightSide d-flex row">
+    <div class="">
+        <button id="showEdit" class="btn btn-outline-secondary">Edit</button>
+        <select  id="selectMenu" class="hidden1"></select>
+        <div class="hidden1 editMovie" id="editMovie">
+            <label for="newTitle">Change Title: </label>
+            <input type="text" id="newTitle">
+            <br>
+            <label for="newGenre">Change Genre: </label>
+            <input type="text" id="newGenre">
+            <br>
+            <label for="newRating">Change Rating: </label>
+            <input type="text" id="newRating">
+            <br>
+            <label for="newDirector">Change Director: </label>
+            <input type="text" id="newDirector">
+            <br>
+            <div class="textBox">
+                <label for="newPlot">Change plot: </label>
+                <textarea id="newPlot" rows="3" cols="30"></textarea>
+            </div>
+
+            <br>
+            <button id="changeMovie" class="btn btn-outline-secondary">Update Movie</button>
+        </div>
     </div>
-</div>
-<!--Delete menu-->
-<div class="rightSide">
-    <button class="remove-hidden btn btn-outline-secondary">Delete a movie</button>
-    <select id="selectMenu2" class="hidden1">
-        <option>Delete a movie</option>
-    </select>
-    <br>
-    <div>
-        <button id="delete-movie" class="hidden1">Delete movie</button>
+    <!--Delete menu-->
+    <div class="">
+        <button class="remove-hidden btn btn-outline-secondary">Delete a movie</button>
+        <div class="deleteGroup">
+            <select id="selectMenu2" class="hidden1 select">
+                <option>Delete a movie</option>
+            </select>
+            <button id="delete-movie" class="hidden1 btn btn-danger">Delete movie</button>
+        </div>
     </div>
-</div>
 
-<!--Post menu-->
-<div class="rightSide">
-    <button id="post-id" class="btn btn-outline-secondary">Post Movie</button>
-    <div class="hidden1" id="postMovie">
-        <label for="title">Title</label>
-        <input type="text" id="title">
+    <!--Post menu-->
+    <div class="">
+        <button id="post-id" class="btn btn-outline-secondary">Post Movie</button>
+        <div class="hidden1 editMovie" id="postMovie">
+            <label for="title">Title</label>
+            <input type="text" id="title">
+            <br>
+            <label for="genre">Genre</label>
+            <input type="text" id="genre">
+            <br>
+            <label for="rating">Rating</label>
+            <input type="text" id="rating">
+            <br>
+            <label for="director">Director</label>
+            <input type="text" id="director">
+            <br>
+            <div class="textBox">
+                <label for="plot">Plot: </label>
+                <textarea id="plot" rows="5" cols="40"></textarea>
+            </div>
 
-        <label for="genre">Genre</label>
-        <input type="text" id="genre">
-
-        <label for="rating">Rating</label>
-        <input type="text" id="rating">
-
-        <label for="director">Director</label>
-        <input type="text" id="director">
-
-        <label for="description">Description</label>
-        <textarea id="description" rows="10" cols="40"></textarea>
-
-        <button id="newMovie">Add Movie</button>
+            <br>
+            <button id="newMovie">Add Movie</button>
+        </div>
     </div>
 </div>
 
