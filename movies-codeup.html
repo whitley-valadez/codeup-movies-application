@@ -9,10 +9,11 @@
 <body>
 
 <div class="rightSide">
-    <select id="selectMenu">
+    <button id="showEdit">Edit</button>
+    <select  id="selectMenu" class="hidden">
         <option value="-1" selected>Select a movie!</option>
     </select>
-    <div class="hidden">
+    <div id="editMovie" class="hidden">
         <label for="newTitle">Change Title: </label>
         <input type="text" id="newTitle">
         <br>
@@ -33,7 +34,7 @@
 
 </div>
 
-<div>
+<div class="rightSide">
     <button class="remove-hidden">Delete a movie</button>
     <select id="selectMenu2" class="hidden">
         <option>Delete a movie</option>
@@ -43,27 +44,30 @@
     </div>
 </div>
 
-<div id="container"></div>
-
 <!--Post a Movie-->
-<div>
-    <label for="title">Title</label>
-    <input type="text" id="title">
+<div class="rightSide">
+    <button id="post-id">Post Movie</button>
+    <div class="hidden" id="postMovie">
+        <label for="title">Title</label>
+        <input type="text" id="title">
 
-    <label for="genre">Genre</label>
-    <input type="text" id="genre">
+        <label for="genre">Genre</label>
+        <input type="text" id="genre">
 
-    <label for="rating">Rating</label>
-    <input type="text" id="rating">
+        <label for="rating">Rating</label>
+        <input type="text" id="rating">
 
-    <label for="director">Director</label>
-    <input type="text" id="director">
+        <label for="director">Director</label>
+        <input type="text" id="director">
 
-    <label for="description">Description</label>
-    <textarea id="description" rows="10" cols="40"></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" rows="10" cols="40"></textarea>
 
-    <button id="newMovie">Add Movie</button>
+        <button id="newMovie">Add Movie</button>
+    </div>
 </div>
+
+<div id="container"></div>
 
 <!--Edit a movie-->
 

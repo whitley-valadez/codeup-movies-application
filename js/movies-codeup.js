@@ -28,7 +28,7 @@ $(document).ready(function(){
                 }
                 console.log(movies)
                 $("#container").html(htmlStr);
-                $("#selectMenu").append(html);
+                $("#selectMenu").html(html);
                 $("#selectMenu2").html(html);
             });
     }
@@ -39,12 +39,20 @@ $(document).ready(function(){
         $("#delete-movie").removeClass("hidden");
     });
 
+    $("#post-id").click(function () {
+        $("#postMovie").toggleClass("hidden");
+    });
+
     //edit movie
+    $("#showEdit").click(function() {
+        $("#editMovie").toggleClass("hidden");
+        $("#selectMenu").toggleClass("hidden");
+    });
+
     $("#selectMenu").change(function(){
         let target = $(this).val()
         console.log(target);
         //show menu and then use targeted fields to PATCH the selected movie with new information
-        $(".rightSide").children().removeClass("hidden");
 
         //grab info from the input fields
         //edit function
