@@ -65,28 +65,27 @@ $(document).ready(function(){
                 $("#newPlot").val(movie.plot);
             }
         }
-        $("#changeMovie").click(function(){
-
-            let insert = {
-                title: $("#newTitle").val(),
-                genre: $("#newGenre").val(),
-                rating: $("#newRating").val(),
-                director: $("#newDirector").val(),
-                plot: $("#newPlot").val()
-            }
-            let patchOptions = {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(insert)
-            }
-            //PATCH
-            fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${target}`, patchOptions)
-                .then(moviePosters);
-        });
-
     })
+
+    $("#changeMovie").click(function(){
+        let insert = {
+            title: $("#newTitle").val(),
+            genre: $("#newGenre").val(),
+            rating: $("#newRating").val(),
+            director: $("#newDirector").val(),
+            plot: $("#newPlot").val()
+        }
+        let patchOptions = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(insert)
+        }
+        //PATCH
+        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${target}`, patchOptions)
+            .then(moviePosters);
+    });
 
     //delete movie
     let deleteOptions = {
