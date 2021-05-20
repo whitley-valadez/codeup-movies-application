@@ -14,48 +14,49 @@ $(document).ready(function(){
                 let html = "";
                 for (let movie of movies) {
 
-                    // let title = movie.title.split("");
-                    // title[0] = title[0].toUpperCase();
-                    // title = title.join("");
-
+                    //creates the dropdown menus for select
                     html += `<option value=${movie.id}>${movie.title}</option>`;
 
-                    htmlStr += `<div class="posters"><a href="#1"></a>`
+                    //creates movie posters
+                    htmlStr += `<div class="posters">`
                     htmlStr += `<h1 class="title">${movie.title}</h1><div class="genre">${movie.genre}</div><img src=${movie.poster}>`;
                     htmlStr += `<div class="underImgContainer"><div class="rating">${movie.rating}/5</div><div class="director">By: ${movie.director}</div></div>`;
                     htmlStr += `<div class="description">${movie.plot}</div>`;
                     htmlStr += `</div>`;
                 }
+
+                //pushes created card or dropdown menu to the screen
                 console.log(movies)
                 $("#container").html(htmlStr);
-                $("#selectMenu").html(html);
-                $("#selectMenu2").html(html);
+                $("#selectMenu").html("<option value='-1' selected>Select a movie</option>" + html);
+                $("#selectMenu2").html("<option value='-1' selected>Select a movie</option>" + html);
             });
     }
     moviePosters();
 
+    //show the delete menu
     $(".remove-hidden").click(function() {
         $("#selectMenu2").removeClass("hidden");
         $("#delete-movie").removeClass("hidden");
     });
 
+    //show the post menu
     $("#post-id").click(function () {
         $("#postMovie").toggleClass("hidden");
     });
 
-    //edit movie
+    //Show the edit menu
     $("#showEdit").click(function() {
         $("#editMovie").toggleClass("hidden");
         $("#selectMenu").toggleClass("hidden");
     });
 
+    //when the option selected is changed, update the input fields
     $("#selectMenu").change(function(){
         let target = $(this).val()
         console.log(target);
-        //show menu and then use targeted fields to PATCH the selected movie with new information
 
-        //grab info from the input fields
-        //edit function
+        //grab info from the json file and populate the input fields
         for (let movie of movieArray) {
             if (movie.id == target) {
                 $("#newTitle").val(movie.title);
@@ -67,7 +68,9 @@ $(document).ready(function(){
         }
     })
 
+    //Edit selected movie
     $("#changeMovie").click(function(){
+        let input = $("#selectMenu").val()
         let insert = {
             title: $("#newTitle").val(),
             genre: $("#newGenre").val(),
@@ -82,8 +85,8 @@ $(document).ready(function(){
             },
             body: JSON.stringify(insert)
         }
-        //PATCH
-        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${target}`, patchOptions)
+        //PATCH request
+        fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${input}`, patchOptions)
             .then(moviePosters);
     });
 
@@ -99,11 +102,11 @@ $(document).ready(function(){
         let inputVal = $(this).val();
         console.log("hello: " + inputVal);
         $("#delete-movie").click(function() {
+            //DELETE request
             fetch(`https://shadowed-deciduous-gecko.glitch.me/movies/${inputVal}`, deleteOptions)
                 .then(moviePosters);
         });
     });
-
 
 
     //create a new movie
@@ -124,8 +127,7 @@ $(document).ready(function(){
             },
             body: JSON.stringify(addMovie)
         }
-
-        console.log(addMovie)
+        //POST movie
         fetch(url, postOptions)
             .then(resp => resp.json())
             .then(moviePosters).catch(error => console.log(error))
