@@ -126,6 +126,7 @@ a:hover {
     position: relative;
     border-radius: var(--borderWidth);
 }
+
 .gradient-border:after {
     content: '';
     position: absolute;
