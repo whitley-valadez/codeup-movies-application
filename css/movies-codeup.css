@@ -22,7 +22,6 @@ body {
     justify-content: space-around;
 }
 .editMovie{
-    border: 2px solid darkslategrey;
     padding: 15px;
     border-radius: 5px;
     background: var(--panelBg);
@@ -85,6 +84,12 @@ img {
     background-color: #09090a;
     color: whitesmoke;
 }
+.dropdown-content {
+    position: absolute;
+    min-width: 160px;
+    z-index: 10;
+}
+
 .textBox {
     display: flex;
     flex-direction: row;
@@ -98,6 +103,7 @@ img {
 .deleteGroup {
     display: flex;
     align-items: center;
+    width: 300px;
 }
 #delete-movie {
     margin: 0;
@@ -152,4 +158,10 @@ a:hover {
     100% {
         background-position: 0 50%;
     }
+}
+
+.nav-bar-btn{
+    border: none;
+    margin: 0;
+    padding: 16px 22px;
 }

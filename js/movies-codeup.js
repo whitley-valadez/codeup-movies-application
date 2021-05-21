@@ -37,23 +37,19 @@ $(document).ready(function(){
     //========Show the edit menu========\\
     $("#showEdit").click(function() {
         $("#editMovie").toggleClass("hidden1");
-        $("#selectMenu").toggleClass("hidden1");
     });
     //hide edit menu
     $("#changeMovie").click(function(){
         $("#editMovie").toggleClass("hidden1");
-        $("#selectMenu").toggleClass("hidden1");
     })
 
     //========show the delete menu========\\
-    $(".remove-hidden").click(function() {
-        $("#selectMenu2").toggleClass("hidden1");
-        $("#delete-movie").toggleClass("hidden1");
+    $("#remove-hidden").click(function() {
+        $("#deleteMenu").toggleClass("hidden1");
     });
     //hide delete menu
     $("#delete-movie").click(function(){
-        $("#selectMenu2").toggleClass("hidden1");
-        $("#delete-movie").toggleClass("hidden1");
+        $("#deleteMenu").toggleClass("hidden1");
     })
 
     //========show the post menu========\\
