@@ -34,6 +34,12 @@ $(document).ready(function(){
     }
     moviePosters();
 
+    // let callOmdb = () => {
+    //     fetch("http://www.omdbapi.com/?t=shrek&?apikey=7d98c6e7&")
+    //         .then(response => console.log(response))
+    // }
+    // callOmdb();
+
     //========Show the edit menu========\\
     $("#showEdit").click(function() {
         $("#editMovie").toggleClass("hidden1");
@@ -130,6 +136,8 @@ $(document).ready(function(){
                 .then(moviePosters);
         });
     });
+
+
 
 
     //create a new movie
