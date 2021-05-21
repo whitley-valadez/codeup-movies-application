@@ -35,7 +35,9 @@ body {
     border-radius: 5px;
     background-color: var(--panelBg);
 }
-
+.row {
+    margin-right: 0!important;
+}
 .grow {
     transition: all .3s ease-in-out;
 }
